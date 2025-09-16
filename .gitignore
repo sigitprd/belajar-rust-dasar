@@ -1,0 +1,90 @@
+/target
+
+# Ignore IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Ignore VS Code project files
+.vscode/
+*.code-workspace
+*.history/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.pidb
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+*.VC.VC.opendb
+
+# Ignore MacOS files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Thumbnails
+._.DS_Store
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Ignore log files and databases
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.bak
+*.backup
+*.swp
+*.swo
+
+# Ignore dependency directories
+node_modules/
+bower_components/
+jspm_packages/
+vendor/
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignore build directories
+dist/
+build/
+out/
+bin/
+obj/
+target/
+release/
+debug/
+
+# Ignore coverage directories
+coverage/
+.nyc_output/
+lcov-report/
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.~*
+*~.*
+*.old
+*.orig
+*.rejected
+
+# Ignore environment files
+.env
+.env.local
+.env.*.local
+*.env
