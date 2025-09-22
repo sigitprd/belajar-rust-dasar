@@ -500,3 +500,120 @@ fn ownership_clone() {
     println!("name1: {}", name1); // name1 masih bisa diakses
     println!("name2: {}", name2); // name2 bisa diakses
 }
+
+#[test]
+fn if_expression() {
+    let number = 10;
+
+    if number % 2 == 0 {
+        println!("{} is even", number);
+    } else {
+        println!("{} is odd", number);
+    }
+
+    let result: &str = if number % 2 == 0 {
+        "even"
+    } else {
+        "odd"
+    };
+
+    println!("{} is {}", number, result);
+}
+
+#[test]
+fn if_expression_2() {
+    let number: i32 = 10;
+
+    if number % 2 == 0 {
+        println!("{} is even", number);
+    } else if number % 3 == 0 {
+        println!("{} is multiple of 3", number);
+    } else {
+        println!("{} is odd", number);
+    }
+}
+
+#[test]
+fn loop_expression() {
+    // loop pada rust merupakan perulangan tanpa batas. jadi butuh trigger break untuk menghentikan dan continue untuk melanjutkan ke iterasi berikutnya
+    let mut counter: i32 = 0;
+    loop {
+        counter += 1;
+        if counter == 10 {
+            break; // menghentikan perulangan
+        } else if counter % 2 == 0 {
+            continue; // melanjutkan ke iterasi berikutnya
+        }
+        println!("Counter: {}", counter);
+    }
+}
+
+#[test]
+fn loop_return_value() {
+    let mut counter: i32 = 0;
+    let result: i32 = loop {
+        counter += 1;
+        if counter == 10 {
+            break counter * 2; // menghentikan perulangan dan mengembalikan nilai counter * 2
+        }
+    };
+    println!("Result: {}", result+1);
+}
+
+#[test]
+fn loop_label() {
+    let mut out = String::new();
+    let mut number: i32 = 1;
+    'outer: loop {
+        let mut counter: i32 = 1;
+        'inner: loop {
+            if number > 100 {
+                break 'outer; // menghentikan perulangan inner
+            }
+
+            out.push_str(&format!("{} x {} = {}\n", number, counter, number * counter));
+            counter += 1;
+            if counter > 100 {
+                break 'inner
+            }
+        }
+        number += 1;
+    }
+    println!("{}", out);
+}
+
+#[test]
+fn loop_label_v2() {
+    use std::fmt::Write; // biar bisa pakai write! ke String
+
+    let mut out = String::new();
+    let mut number: i32 = 1;
+    'outer: loop {
+        let mut counter: i32 = 1;
+        'inner: loop {
+            if number > 100 {
+                break 'outer; // menghentikan perulangan inner
+            }
+
+            write!(&mut out, "{} x {} = {}\n", number, counter, number * counter).unwrap();
+
+            counter += 1;
+            if counter > 100 {
+                break 'inner
+            }
+        }
+        number += 1;
+    }
+    println!("{}", out);
+}
+
+#[test]
+fn while_loop() {
+    let mut counter: i32 = 1;
+    while counter <= 10 {
+        if counter % 2 == 0 {
+            println!("{} is even", counter);
+        }
+        counter += 1;
+    }
+}
